@@ -1,3 +1,4 @@
 export const environment = {
-  production: true
+  production: true,
+  API: 'https://nix-bank-qa.cloudint.nexxera.com'
 };
