@@ -1,6 +1,8 @@
-/* Não foi necessário criar um tema custom para o Angular Material neste caso. Na verdade o Design é o mais simples deste teste por isso foi usado um padrão 
+/* Não foi necessário criar um tema custom para o Angular Material neste caso. Na verdade o Design é o mais simples deste teste por isso foi usado um padrão
 e o estilo foi criado aqui neste documento */
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
+$bg-nix : -webkit-linear-gradient(45deg, #1DE9B6, #2979FF);
+//$fill-white:

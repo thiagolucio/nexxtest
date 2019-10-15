@@ -1,18 +1,26 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { LayoutModule } from '@angular/cdk/layout';
-import { MatGridListModule } from '@angular/material';
+import {
+  MatGridListModule,
+  MatToolbarModule,
+  MatIconModule
+} from '@angular/material';
 
 @NgModule({
   imports: [
     CommonModule,
     LayoutModule,
-    MatGridListModule
+    MatGridListModule,
+    MatToolbarModule,
+    MatIconModule
   ],
   exports: [
     CommonModule,
     LayoutModule,
-    MatGridListModule
+    MatGridListModule,
+    MatToolbarModule,
+    MatIconModule
   ],
   declarations: [],
   entryComponents: [],
