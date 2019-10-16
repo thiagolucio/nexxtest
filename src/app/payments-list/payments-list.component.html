@@ -1,25 +1,50 @@
-<mat-grid-list [cols]="colSize" rowHeight="100px" gutterSize="16px">
+<div class="body-page">
+        <mat-card class="mat-elevation-z2">
+        <mat-card-header class="bg-titles">
+                <mat-card-title>Listagem de Transferências - Carteira NIX</mat-card-title>
+                <mat-card-subtitle>Veja as princpais tranferência mais recentes de sua conta NIX</mat-card-subtitle>
 
-  <mat-grid-tile
-    [colspan]="1"
-    [rowspan]="1"
-    [style.background]="''">
-  </mat-grid-tile>
+                <span class="spacer-horiz"></span>
+
+                <button mat-fab aria-label="Visualizar detalhes Transação" routerLink="." matTooltip="Ver detalhes da transferência" matTooltipPosition="left" matTooltipClass="tooltip">
+                    <mat-icon>list_alt</mat-icon>
+                </button>
+        </mat-card-header>
+        <mat-form-field>
+            <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Pesquisar...">
+        </mat-form-field>
+        <mat-card-content>
 
 
-  <mat-grid-tile
-    [colspan]="10"
-    [rowspan]="1"
-    [style.background]="'lightgray'">
-    Aqui dentro vai a table
-  </mat-grid-tile>
+            <table mat-table [dataSource]="dataSource" matSort>
 
+                <ng-container matColumnDef="pagador">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header> Pagador </th>
+                    <td mat-cell *matCellDef="let paymentsList">{{paymentsList.pagador}}</td>
+                </ng-container>
 
-  <mat-grid-tile
-    [colspan]="1"
-    [rowspan]="1"
-    [style.background]="''">
+                <ng-container matColumnDef="beneficiario">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header> Beneficiário </th>
+                    <td mat-cell *matCellDef="let paymentsList">{{paymentsList.beneficiario}}</td>
+                </ng-container>
 
-  </mat-grid-tile>
+                <ng-container matColumnDef="detalhes">
+                    <th mat-header-cell *matHeaderCellDef>Detalhes</th>
+                    <td mat-cell *matCellDef="let paymentsList">
+                        <button mat-icon-button aria-label="Ver detalhes transferências">
+                            <mat-icon>list_alt</mat-icon>
+                        </button>
+                    </td>
+                </ng-container>
+                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                <tr mat-row *matRowDef="let paymentsList; columns: displayedColumns;"
+                    [routerLink]="['./paymentDetails',paymentsList.id]"></tr>
+            </table>
+            <mat-paginator [length]="1" [pageSize]="1" showFirstLastButtons></mat-paginator>
 
-</mat-grid-list>
+        </mat-card-content>
+        <mat-card-actions>
+            <button mat-button class="btn-detalhes">VER DETALHES</button>
+        </mat-card-actions>
+    </mat-card>
+</div>

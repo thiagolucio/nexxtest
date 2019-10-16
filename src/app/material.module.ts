@@ -1,11 +1,20 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { LayoutModule } from '@angular/cdk/layout';
-import {
+ 
+
+import { 
   MatGridListModule,
   MatToolbarModule,
   MatIconModule,
-  MatButtonModule
+  MatButtonModule,
+  MatTableModule,  
+  MatPaginatorModule,
+  MatSortModule,
+  MatFormFieldModule, 
+  MatInputModule,
+  MatCardModule,
+  MatTooltipModule
 } from '@angular/material';
 
 @NgModule({
@@ -15,7 +24,14 @@ import {
     MatGridListModule,
     MatToolbarModule,
     MatIconModule,
-    MatButtonModule
+    MatButtonModule,
+    MatTableModule,
+    MatPaginatorModule,
+    MatSortModule,
+    MatFormFieldModule, 
+    MatInputModule,
+    MatCardModule,
+    MatTooltipModule
   ],
   exports: [
     CommonModule,
@@ -23,7 +39,14 @@ import {
     MatGridListModule,
     MatToolbarModule,
     MatIconModule,
-    MatButtonModule
+    MatButtonModule,
+    MatTableModule,
+    MatPaginatorModule,
+    MatSortModule,
+    MatFormFieldModule, 
+    MatInputModule,
+    MatCardModule,
+    MatTooltipModule
   ],
   declarations: [],
   entryComponents: [],
