@@ -4,7 +4,8 @@ import { LayoutModule } from '@angular/cdk/layout';
 import {
   MatGridListModule,
   MatToolbarModule,
-  MatIconModule
+  MatIconModule,
+  MatButtonModule
 } from '@angular/material';
 
 @NgModule({
@@ -13,14 +14,16 @@ import {
     LayoutModule,
     MatGridListModule,
     MatToolbarModule,
-    MatIconModule
+    MatIconModule,
+    MatButtonModule
   ],
   exports: [
     CommonModule,
     LayoutModule,
     MatGridListModule,
     MatToolbarModule,
-    MatIconModule
+    MatIconModule,
+    MatButtonModule
   ],
   declarations: [],
   entryComponents: [],

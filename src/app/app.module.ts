@@ -6,11 +6,13 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './material.module';
 import { TopNavComponent } from './top-nav/top-nav.component';
+import { PaymentsListComponent } from './payments-list/payments-list.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    TopNavComponent
+    TopNavComponent,
+    PaymentsListComponent
   ],
   imports: [
     BrowserModule,
