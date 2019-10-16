@@ -1,5 +1,19 @@
 @import "src/styles";
 .bg-titles {
-    background: $bg-titles;
-    padding: 8px 16px;
+  background: $bg-titles;  
+}
+.bg-titles > div::after {
+    margin-bottom: 16px;
+}
+
+table {
+    width: 100%;
+  }
+  
+  th.mat-sort-header-sorted {
+    color: black;    
+  }
+
+  .mat-form-field {   
+    line-height: 2.125!important;    
 }

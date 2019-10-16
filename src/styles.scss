@@ -2,15 +2,49 @@
 e o estilo foi criado aqui neste documento */
 
 /*variaveis*/
-$bg-nix : -webkit-linear-gradient(45deg, #1DE9B6, #2979FF);
-$bg-titles: #1DE9B6;
+$bg-nix: -webkit-linear-gradient(45deg, #1de9b6, #2979ff);
+$bg-titles: #1de9b6;
 /*genericos*/
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
-.body-page {padding: 16px;}
-.mb-2 {margin-bottom: 2%}
-.spacer-horiz {flex: 1 1 auto;}
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+h1, h2, h3, h4, h5 {
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  font-weight: 500;
+}
+.p-16p {
+  padding: 16px;
+}
+.mt-2 {
+  margin-top: 2%;;
+}
+.mb-2 {
+  margin-bottom: 2%;
+}
+.ml-2 {
+  margin-left: 2%;
+}
+.mr-2 {
+  margin-right: 2%;
+}
+.spacer-horiz {
+  flex: 1 1 auto;
+}
 .mat-tooltip.tooltip {
-    background-color: #2979FF;
-    font-size: 14px;
-  }
+  background-color: #2979ff;
+  font-size: 14px;
+}
+.text-dark {
+  color: #333;
+}
+.w-100 {
+  width: 100%;
+}
+.pull-right {
+  float: right;
+}
