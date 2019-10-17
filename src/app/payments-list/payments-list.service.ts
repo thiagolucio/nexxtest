@@ -10,14 +10,13 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root'
 })
 export class PaymentsListService {
-
-  constructor(private http: HttpClient) { }
-
-  private readonly APITRASFERLIST = `${environment.API}/v1/transactions`;
-
   getTransferDetails() {
     throw new Error('Método não implementado.');
   }
+
+  private readonly APITRASFERLIST = `${environment.API}/v1/transactions`;
+
+  constructor(private http: HttpClient) { } 
 
   getTransferList(): Observable<PaymentsList[]> {
     return this.http.get<PaymentsList[]>(this.APITRASFERLIST)
