@@ -1,21 +1,69 @@
-<!-- <h2 mat-dialog-title>Detalhes da Transferência</h2>
-<mat-dialog-content>
-     <div *ngFor="let item of paymentDetail.pagador">
-        <span>{{item.nome}}</span>
-        <span>{{item.agencia}}</span>
-        <span>{{item.banco}}</span>
-        <span>{{ item.valor | currency:'2' }}</span>
-        
-    </div> 
-  
-</mat-dialog-content>
+<div class="p-16p">
+    <div class="bg-titles">
+        <h2 class="ml-2 text-dark">Listagem de Transferências - Carteira NIX</h2>
+        <button mat-fab aria-label="Voltar" class="mr-2 btn-voltar" matTooltip="Voltar" matTooltipPosition="left"
+            matTooltipClass="tooltip" (click)="onClick()">
+            <mat-icon>arrow_back</mat-icon>
+        </button>
+    </div>
 
-<mat-dialog-actions>
-    <button mat-button mat-dialog-close>Fechar</button>
-</mat-dialog-actions> -->
-<div style="margin-top: 200px; color: black;">
-
-    <h2>{{paymentData.id}}</h2>
-    <h2>{{paymentData.status}}</h2>
-    <h2>{{paymentData.valor}}</h2>
+    <mat-card class="mat-elevation-z2 mt-2">
+        <mat-toolbar color="primary">
+            <mat-toolbar-row>
+                <span style="text-transform: uppercase;">{{paymentData.status}}</span>
+                <span class="spacer-horiz"></span>
+                <span>R$ {{paymentData.valor}}</span>
+            </mat-toolbar-row>
+        </mat-toolbar>
+        <mat-grid-list [cols]="colSize" rowHeight="210" gutterSize="3em">
+            <mat-grid-tile [colspan]="2" [rowspan]="1" [style.background]="''">
+                <mat-list>
+                    <mat-list-item style="min-width: 200px; text-align: left;">
+                        <h3 matLine><b>Nome:</b></h3>
+                        <span class="w-100">{{paymentData.pagador.nome}}</span>
+                    </mat-list-item>
+                    <mat-divider></mat-divider>
+                    <mat-list-item>
+                        <h3 matLine><b>Banco:</b></h3>
+                        <span class="w-100">{{paymentData.pagador.banco}}</span>
+                    </mat-list-item>
+                    <mat-divider></mat-divider>
+                    <mat-list-item>
+                        <h3 matLine><b>Agência:</b></h3>
+                        <span class="w-100">{{paymentData.pagador.agencia}}</span>
+                    </mat-list-item>
+                    <mat-divider></mat-divider>
+                    <mat-list-item>
+                        <h3 matLine><b>Conta:</b></h3>
+                        <span class="w-100">{{paymentData.pagador.conta}}</span>
+                    </mat-list-item>
+                    <mat-divider></mat-divider>
+                </mat-list>
+            </mat-grid-tile>
+            <mat-grid-tile [colspan]="2" [rowspan]="1" [style.background]="''">
+                <mat-list>
+                    <mat-list-item style="min-width: 200px; text-align: left;">
+                        <h3 matLine><b>Nome:</b></h3>
+                        <span class="w-100">{{paymentData.beneficiario.nome}}</span>
+                    </mat-list-item>
+                    <mat-divider></mat-divider>
+                    <mat-list-item>
+                        <h3 matLine><b>Banco:</b></h3>
+                        <span class="w-100">{{paymentData.beneficiario.banco}}</span>
+                    </mat-list-item>
+                    <mat-divider></mat-divider>
+                    <mat-list-item>
+                        <h3 matLine><b>Agência:</b></h3>
+                        <span class="w-100">{{paymentData.beneficiario.agencia}}</span>
+                    </mat-list-item>
+                    <mat-divider></mat-divider>
+                    <mat-list-item>
+                        <h3 matLine><b>Conta:</b></h3>
+                        <span class="w-100">{{paymentData.beneficiario.conta}}</span>
+                    </mat-list-item>
+                    <mat-divider></mat-divider>
+                </mat-list>
+            </mat-grid-tile>
+        </mat-grid-list>
+    </mat-card>
 </div>

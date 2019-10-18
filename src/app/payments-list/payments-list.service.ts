@@ -9,10 +9,8 @@ import { HttpClient } from '@angular/common/http';
 @Injectable({
   providedIn: 'root'
 })
+
 export class PaymentsListService {
-  getTransferDetails() {
-    throw new Error('Método não implementado.');
-  }
 
   private readonly APITRASFERLIST = `${environment.API}/v1/transactions`;
 
@@ -23,6 +21,5 @@ export class PaymentsListService {
       .pipe(
        tap(console.log));
   }
-
 
 }

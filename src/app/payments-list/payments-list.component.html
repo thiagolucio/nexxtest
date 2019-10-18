@@ -3,9 +3,9 @@
         <mat-grid-tile [colspan]="12" [rowspan]="1" class="bg-titles color-dark-gray">
             <h2 class="ml-2 text-dark">Listagem de Transferências - Carteira NIX</h2>
             <span class="spacer-horiz"></span>
-            <button mat-fab aria-label="Visualizar detalhes Transação" routerLink="." class="mr-2"
-                matTooltip="Ver detalhes da transferência" matTooltipPosition="left" matTooltipClass="tooltip">
-                <mat-icon>list_alt</mat-icon>
+            <button mat-fab aria-label="Visualizar detalhes Transação" class="mr-2" matTooltip="Visite nosso Site"
+                matTooltipPosition="left" matTooltipClass="tooltip" onclick="location.href='http://www.meunix.com.br';">
+                <mat-icon>open_in_new</mat-icon>
             </button>
         </mat-grid-tile>
     </mat-grid-list>
@@ -20,44 +20,51 @@
             </mat-form-field>
 
             <table mat-table [dataSource]="dataSource" matSort>
-                <ng-container matColumnDef="pagador">
-                    <th mat-header-cell *matHeaderCellDef mat-sort-header> Pagador </th>
-                    <td mat-cell *matCellDef="let row">{{row.pagador.nome}}</td>
-                </ng-container>
-
-                <ng-container matColumnDef="beneficiario">
-                    <th mat-header-cell *matHeaderCellDef mat-sort-header> Beneficiário </th>
-                    <td mat-cell *matCellDef="let row">{{row.beneficiario.nome}}</td>
-                </ng-container>
-
                 <ng-container matColumnDef="status">
-                    <th mat-header-cell *matHeaderCellDef mat-sort-header> Status </th>
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header> Status
+                    </th>
                     <td mat-cell *matCellDef="let row">{{row.status}}</td>
                 </ng-container>
 
                 <ng-container matColumnDef="valor">
-                    <th mat-header-cell *matHeaderCellDef mat-sort-header> Valor R$ </th>
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header> Valor R$
+                    </th>
                     <td mat-cell *matCellDef="let row">{{row.valor}}</td>
+                </ng-container>
+
+
+                <ng-container matColumnDef="pagador">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header> Pagador
+                    </th>
+                    <td mat-cell *matCellDef="let row">{{row.pagador.nome}}</td>
+                </ng-container>
+
+                <ng-container matColumnDef="beneficiario">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header> Beneficiário
+                    </th>
+                    <td mat-cell *matCellDef="let row">{{row.beneficiario.nome}}</td>
                 </ng-container>
 
                 <ng-container matColumnDef="acao">
                     <th mat-header-cell *matHeaderCellDef>Detalhes</th>
                     <td mat-cell *matCellDef="let row">
-                        <button mat-icon-button aria-label="Detalhes da Operação" matTooltip="Ver detalhes da transferência" matTooltipPosition="above" matTooltipClass="tooltip">
+                        <button mat-icon-button aria-label="Detalhes da Operação"
+                            matTooltip="Ver detalhes da transferência" matTooltipPosition="above"
+                            matTooltipClass="tooltip">
                             <mat-icon>list_alt</mat-icon>
                         </button>
                     </td>
                 </ng-container>
 
                 <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-                <!-- <tr mat-row *matRowDef="let row; columns: displayedColumns;" (click)="openDialog(row.id)"></tr> -->
-                <tr mat-row *matRowDef="let row; columns: displayedColumns;" [routerLink]="['./paymentDetail',row.id]"></tr>
-            </table>
+                <tr mat-row *matRowDef="let row; columns: displayedColumns;" [routerLink]="['./paymentDetail',row.id]">
+                </tr>
 
+            </table>
         </mat-card-content>
         <mat-card-actions>
             <mat-paginator [length]="5" [pageSize]="5" [pageSizeOptions]="[5, 10, 25]" showFirstLastButtons>
-            </mat-paginator>           
+            </mat-paginator>
         </mat-card-actions>
     </mat-card>
 </div>

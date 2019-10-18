@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, LOCALE_ID } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
+import { ReactiveFormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -15,25 +16,28 @@ import { PaymentDetailComponent } from './payment-detail/payment-detail.componen
     AppComponent,
     TopNavComponent,
     PaymentsListComponent,
-    PaymentDetailComponent,
-           
+    PaymentDetailComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     MaterialModule,
-    HttpClientModule    
+    HttpClientModule,
+    ReactiveFormsModule
   ],
   exports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     MaterialModule,
-    HttpClientModule    
+    HttpClientModule,
+    ReactiveFormsModule
   ],
-  providers: [],
+  providers: [
+    { provide: LOCALE_ID, useValue: "pt-BR" }
+  ],
   bootstrap: [AppComponent],
-  entryComponents: [PaymentDetailComponent]
+  entryComponents: []
 })
 export class AppModule { }

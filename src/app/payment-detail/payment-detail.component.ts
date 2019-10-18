@@ -1,45 +1,60 @@
-import { Component, OnInit, Inject } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { PaymentsListService } from '../payments-list/payments-list.service';
-import { PaymentsList } from '../payments-list/payments-list';
 import { ActivatedRoute, Router } from '@angular/router';
-import { MAT_DIALOG_DATA } from '@angular/material';
+import { Location, CurrencyPipe } from '@angular/common';
+import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
+
 
 @Component({
   selector: 'app-payment-detail',
   templateUrl: './payment-detail.component.html',
   styleUrls: ['./payment-detail.component.scss']
 })
+
 export class PaymentDetailComponent implements OnInit {
 
-  paymentData: any;
+  public colSize = 4;
+  public isMobile = false;
+  paymentData = [];
 
-  // constructor(
-  //   private readonly route: ActivatedRoute,
-  //   private readonly router: Router,
-  //   private paymentListService: PaymentsListService,
-  //   @Inject(MAT_DIALOG_DATA) public data: any) { }
   constructor(
+    breakpointObserver: BreakpointObserver,
     private readonly route: ActivatedRoute,
     private readonly router: Router,
-    private paymentListService: PaymentsListService) { }
+    private paymentListService: PaymentsListService,
+    private _location: Location) {
 
-  ngOnInit() {
-    // console.log('PARAMETROS ', this.route.params['']);
-    this.route.params.subscribe(params => {
-      const idPayment = params['id'];     
-      this.paymentListService.getTransferList()
-      .subscribe((data: PaymentsList[]) => {
-        let paymentDetail = data.filter( payment => payment.id == idPayment); 
+    // Metodo observable do breakpoint do layout
+    breakpointObserver.observe([
+      Breakpoints.HandsetLandscape,
+      Breakpoints.HandsetPortrait
+    ]).subscribe(result => {
+      this.isMobile = result.matches;
+      if (this.isMobile) {
+        this.colSize = 1;
+      } else {
+        this.colSize = 4;
+      }
+    });
 
-        console.log('DATA', data); 
-        this.paymentData = paymentDetail[0]; 
-        console.log('PAYMENT DETAIL[o]', paymentDetail[0]);     
-        console.log('PAYMENT DATA', this.paymentData);     
-      });
-      console.log('RECEBENDO ID', params['id']);
-      console.log('NOME PAGADOR', this.paymentData);
-      
-    });    
   }
 
+  ngOnInit() {
+    this.getDetails();
+  }
+
+  getDetails(): void {
+    this.route.params.subscribe(params => {
+      const idPayment = params['id'];
+      this.paymentListService.getTransferList()
+        .subscribe((data: any) => {
+          const paymentDetail = data.data.filter(payment => payment.id === idPayment);
+          this.paymentData = paymentDetail[0];
+        });
+    });
+  }
+
+  onClick() {
+    this._location.back();
+  }
 }

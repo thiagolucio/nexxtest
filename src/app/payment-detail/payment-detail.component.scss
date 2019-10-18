@@ -1,0 +1,16 @@
+@import "src/styles";
+.bg-titles {
+  background: $bg-titles-one;
+  padding: 6px;
+  margin-bottom: 8px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.list-items {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}

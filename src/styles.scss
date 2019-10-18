@@ -1,5 +1,6 @@
-/* Não foi necessário criar um tema custom para o Angular Material neste caso. Na verdade o Design é o mais simples deste teste por isso foi usado um padrão
-e o estilo foi criado aqui neste documento */
+/* Devido ao tempo livre para realização do teste foquei principalmente no desenvolvimento prático diretamente relacionado ao teste. Por ser duas páginas com design mínimo
+ao invés de criar mais um arquivo css de temas preferi agilizar com rapidez e simplicidade temas baseados em variáveis scss
+Peço desculpas se houver classes sem uso ou coisa do gênero mas fiz tudo na noite madrugada do dia 17*/
 
 /*variaveis - o desenvolvedor trocará a cor do tema aqui nestas duas variáveis abaixo*/
 $bg-nix-one: -webkit-linear-gradient(45deg, #1de9b6, #2979ff);
@@ -19,7 +20,11 @@ body {
   margin: 0;
   font-family: Roboto, "Helvetica Neue", sans-serif;
 }
-h1, h2, h3, h4, h5 {
+h1,
+h2,
+h3,
+h4,
+h5 {
   font-family: Roboto, "Helvetica Neue", sans-serif;
   font-weight: 500;
 }
@@ -27,7 +32,7 @@ h1, h2, h3, h4, h5 {
   padding: 16px;
 }
 .mt-2 {
-  margin-top: 2%;;
+  margin-top: 2%;
 }
 .mb-2 {
   margin-bottom: 2%;
@@ -53,4 +58,9 @@ h1, h2, h3, h4, h5 {
 }
 .pull-right {
   float: right;
+}
+
+//elementos de tema personalizado
+.btn-voltar {
+  background: $bg-nix-four;
 }
