@@ -8,6 +8,8 @@ import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { Router } from '@angular/router';
+import { MatDialog } from '@angular/material';
+import { PaymentDetailComponent } from '../payment-detail/payment-detail.component';
 
 
 @Component({
@@ -22,8 +24,9 @@ export class PaymentsListComponent implements OnInit {
 
   paymentListArray = [];
   dataSource: any;
-  // data: any;
-  public errorMsg: "Erro no carregamento dos dados.";
+  data: any;
+  public errorMsg: any;
+
 
   @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
   @ViewChild(MatSort, { static: true }) sort: MatSort;
@@ -36,7 +39,12 @@ export class PaymentsListComponent implements OnInit {
     'acao'
   ];
 
-  constructor(breakpointObserver: BreakpointObserver, private paymentListService: PaymentsListService, private router: Router) {
+  constructor(
+    breakpointObserver: BreakpointObserver, 
+    private paymentListService: PaymentsListService, 
+    private router: Router,
+    public dialog:MatDialog
+    ) {
 
     // Metodo observable do breakpoint do layout
     breakpointObserver.observe([
@@ -52,39 +60,30 @@ export class PaymentsListComponent implements OnInit {
     });
   }
 
-  // ngOnInit() {
-  //   this.paymentListService.getTransferList()
-  //   .subscribe((data: PaymentsList[]) => {            
-  //     this.paymentListArray = data; 
-  //     console.log('DADOS VINDOS DA PAGINACAO', this.paymentListArray);       
-  //   });
-    
-  //   this.dataSource = new MatTableDataSource(this.paymentListArray);
-  //   this.dataSource.paginator = this.paginator;
-  //   this.dataSource.sort = this.sort;
-  //   console.log('THIS PAYMENT', this.paymentListArray); 
-  // }
+  openDialog() {
+    this.dialog.open(PaymentDetailComponent);
+  }
+
 
   ngOnInit() {
+    this.bringData();
+  }
+
+  bringData(): void {
     this.paymentListService.getTransferList()
-      .subscribe(result => {
-        this.paymentListArray = result;         
-        if (!result) {
-          return;
-        } else {
-        this.errorMsg;
+    .subscribe((res: any) => {        
+      this.paymentListArray = res.data;        
+      console.log('res is ', res.data);
+      this.dataSource = new MatTableDataSource(this.paymentListArray);
+      this.dataSource.sort = this.sort;
+      this.dataSource.paginator = this.paginator;
+    }, error => {
+      alert("ERROR");
+    });
   }
-
-        this.dataSource = new MatTableDataSource(result.data);
-        this.dataSource.sort = this.sort;
-        this.dataSource.paginator = this.paginator;
-      });
-  }
-
 
   applyFilter(filterValue: string) {
     this.dataSource.filter = filterValue.trim().toLowerCase();
-
     if (this.dataSource.paginator) {
       this.dataSource.paginator.firstPage();
     }

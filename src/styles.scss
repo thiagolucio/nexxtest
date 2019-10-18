@@ -2,8 +2,14 @@
 e o estilo foi criado aqui neste documento */
 
 /*variaveis - o desenvolvedor trocará a cor do tema aqui nestas duas variáveis abaixo*/
-$bg-nix: -webkit-linear-gradient(45deg, #1de9b6, #2979ff);
-$bg-titles: #1de9b6;
+$bg-nix-one: -webkit-linear-gradient(45deg, #1de9b6, #2979ff);
+$bg-nix-two: -webkit-linear-gradient(45deg, #2979ff, #1de9b6);
+$bg-nix-three: #333333;
+$bg-nix-four: -webkit-linear-gradient(45deg, #d069f0, #2979ff);
+$bg-titles-one: #1de9b6;
+$bg-titles-two: #2979ff;
+$bg-titles-three: #333333;
+$bg-titles-four: -webkit-linear-gradient(45deg, #d069f0, #2979ff);
 /*genericos*/
 html,
 body {

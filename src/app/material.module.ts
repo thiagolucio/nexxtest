@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { LayoutModule } from '@angular/cdk/layout';
- 
+import { PaymentDetailComponent } from './payment-detail/payment-detail.component'; 
 
 import { 
   MatGridListModule,
@@ -14,8 +14,10 @@ import {
   MatFormFieldModule, 
   MatInputModule,
   MatCardModule,
-  MatTooltipModule
+  MatTooltipModule,
+  MatDialogModule
 } from '@angular/material';
+
 
 @NgModule({
   imports: [
@@ -31,7 +33,8 @@ import {
     MatFormFieldModule, 
     MatInputModule,
     MatCardModule,
-    MatTooltipModule
+    MatTooltipModule,
+    MatDialogModule
   ],
   exports: [
     CommonModule,
@@ -46,9 +49,10 @@ import {
     MatFormFieldModule, 
     MatInputModule,
     MatCardModule,
-    MatTooltipModule
+    MatTooltipModule,
+    MatDialogModule
   ],
   declarations: [],
-  entryComponents: [],
+  entryComponents: [PaymentDetailComponent],
 })
 export class MaterialModule { }
