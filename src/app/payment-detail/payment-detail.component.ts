@@ -22,7 +22,7 @@ export class PaymentDetailComponent implements OnInit {
     private readonly route: ActivatedRoute,
     private readonly router: Router,
     private paymentListService: PaymentsListService,
-    private _location: Location) {
+    private location: Location) {
 
     // Metodo observable do breakpoint do layout
     breakpointObserver.observe([
@@ -45,7 +45,7 @@ export class PaymentDetailComponent implements OnInit {
 
   getDetails(): void {
     this.route.params.subscribe(params => {
-      const idPayment = params['id'];
+      const idPayment = params.id;
       this.paymentListService.getTransferList()
         .subscribe((data: any) => {
           const paymentDetail = data.data.filter(payment => payment.id === idPayment);
@@ -55,6 +55,6 @@ export class PaymentDetailComponent implements OnInit {
   }
 
   onClick() {
-    this._location.back();
+    this.location.back();
   }
 }
